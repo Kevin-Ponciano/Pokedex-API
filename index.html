@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>PokeDex</title>
+  <link rel="shortcut icon" sizes="16x16" href="favicon.png" />
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&family=Inconsolata&family=Kirang+Haerang&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+	<link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="pokeload.css" rel="stylesheet" type="text/css" />
+
+  <!-- Select2 -->
+  <link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="vendor/select2/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+  <!-- PokeLOADER -->
+  <div id="StefTastan">
+			
+			<!-- pokeball container -->
+			<div id="moving-container">
+				<div id="pokeball-container">
+				<!-- pokeball -->
+					<div id="pokeball">
+						<div class="pokeball-details"></div>
+					</div>
+				</div>				
+			</div>
+
+			<!-- charmander -->
+			<div id="charmander">
+				<div id="arms"></div>
+				<div id="feet"></div>
+				<div id="body">
+					<div id="eyes"></div>
+					<div id="pupils"></div>
+					<div id="nostrils"></div>
+					<div id="mouth"></div>
+					<div id="belly"></div>
+				</div>
+				<div id="tail"></div>
+				<div id="flame"></div>
+			</div>
+
+			<!-- bulbasaur -->
+			<div id="bulbasaur">
+				<div id="head">
+					<div id="eyes"></div>
+					<div id="pupils"></div>
+					<div id="nostrils"></div>
+					<div class="mouth"></div>
+				</div>
+				<div class="ears"></div>
+				<div id="body">
+					<div class="spots spot1"></div>
+					<div class="spots spot2"></div>
+					<div class="spots spot3"></div>
+				</div>
+				<div id="front-feet"></div>
+				<div id="back-feet"></div>
+				<div id="bulb"></div>
+			</div>
+	
+			<!-- squirtle -->
+			<div id="squirtle">
+				<div id="arms"></div>
+				<div id="feet"></div>
+				<div id="head">
+					<div id="eyes"></div>
+					<div id="pupils"></div>
+					<div id="nostrils"></div>
+					<div id="mouth"></div>
+				</div>
+				<div id="body"></div>
+				<div id="shell"></div>
+				<div id="tail"></div>
+			</div>
+
+		</div>
+
+    <!-- PokeDex -->
+  <div id="myDiv" style="display:none;">
+      
+      <div id="mini1"></div>
+      <div id="mini2"></div>
+      <div id="mini3"></div>
+      <div id="style"></div>
+
+      <div id="pokedex">
+        <div id="left">
+          <div id="logo"></div>
+          <div id="bg_curve1_left"></div>
+          <div id="bg_curve2_left"></div>
+          <div id="curve1_left">
+            <div id="buttonGlass" class="header" onclick="power();">
+              <div id="reflect"> </div>
+            </div>
+            <div id="miniButtonGlass1"></div>
+            <div id="miniButtonGlass2"></div>
+            <div id="miniButtonGlass3"></div>
+          </div>
+          <div id="curve2_left">
+            <div id="junction">
+              <div id="junction1"></div>
+              <div id="junction2"></div>
+            </div>
+          </div>
+          <div id="screen">
+            <div id="topPicture">
+              <div id="buttontopPicture1"></div>
+              <div id="buttontopPicture2"></div>
+            </div>
+            <div id="picture">
+              <img id="miniLoad" src="loader.gif" height="160" alt="loader"/>
+              <img id="img" src="" alt="null" height="185" />
+          </div>
+          <div id="buttonbottomPicture" class="pressed" onclick="reset();"></div>
+          <div id="stats2"></div>
+        </div>
+        <div id="bigbluebutton" class="pressed" onclick="random();"></div>
+        <div id="barbutton1"></div>
+        <div id="barbutton2"></div>
+        <div id="cross">
+          <div id="leftcross" class="pressed" onclick="anterior();">
+            <div id="leftT"></div>
+          </div>
+          <div id="topcross" class="pressed">
+            <div id="upT"></div>
+          </div>
+          <div id="rightcross" class="pressed" onclick="proximo();">
+            <div id="rightT"></div>
+          </div>
+          <div id="midcross">
+            <div id="midCircle"></div>
+          </div>
+          <div id="botcross" class="pressed""> 
+            <div id="downT"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right">
+        <div id="stats">
+          <div id="name" class="header"></div>
+          <div id="tipo"></div>
+          <div id="altura"></div>
+          <div id="peso"></div><br>
+          <div id="desc"></div>
+        </div>        
+      
+        <form action="" class="form-class" id="pesquisa-form">
+          <input type="text" id="pokeName" name="poke"  placeholder="Id ou Nome do Pokemon...">
+        <div id="miniButtonGlass4" class="header"></div>
+        <div id="miniButtonGlass5" class="header"></div>
+        
+          <input type="button" id="myBtn" onclick="processRequest();">      
+          <input type="button" id="myBtn2" onclick="document.getElementById('pokeName').value = ''">
+          
+          <script>
+            var input = document.getElementById("pokeName");
+              input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                  event.preventDefault();
+                  document.getElementById("myBtn").click();
+                  document.getElementById("myBtn2").click();
+                }
+              });
+            </script>
+        </form>
+      
+        <div id="yellowBox1">
+          <div id="gen"></div>
+        </div>
+        <div id="yellowBox2">
+          <div id="aparicao"></div>
+        </div>
+        <div id="bg_curve1_right"></div>
+        <div id="bg_curve2_right"></div>
+        <div id="curve1_right"></div>
+        <div id="curve2_right"></div>
+      </div>
+    </div>
+  </div>
+    <script src="script.js"></script>
+
+    <script>
+      $(document).keypress(
+        function(event){
+          if (event.which == '13') {
+            event.preventDefault();
+          }
+      });
+    </script>
+  </body>
+</html>
